@@ -10,10 +10,10 @@ button.addEventListener("click", () => {
     showData();
 })
 
-function showData(){
+function showData(item,index){
     list.innerHTML = ""
     todolist.forEach((item,index) => {
-        list.innerHTML += `<li>${item} <a onclick="editItem(index)">edit</a><a onclick="deleteItem(index)">X |</a></li>`
+        list.innerHTML += `<li>${item} <a onclick="editItem(${index})">edit</a><a onclick="deleteItem(${index})">X |</a></li>`
     })
 }
 
@@ -21,6 +21,7 @@ function showData(){
 
 function deleteItem(i) {
     todolist.splice(i, 1)
+    showData();
 }
 
 
